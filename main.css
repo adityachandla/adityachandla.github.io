@@ -1,0 +1,15 @@
+.myimage : img {
+    height: 21rem;
+    width: 21rem;
+    border-radius: 10rem;
+    align-items: flex-end;
+}
+
+.maincontainer {
+    margin-top: 4rem;
+}
+
+.infoColumn {
+    position: relative;
+    color: blue;
+}
