@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!--<meta http-equiv="refresh" content="1" >-->
+
+    <title>DNS Example</title>
+  </head>
+
+  <body>
+      <div class="container-flex py-5 px-2">
+          <div class="row">
+              <div class="col">
+                  <div class="container-flex">
+                      <div class="row text-center">
+                          <p class="display-6"> Enter a url </p>
+                      </div>
+                      <div class="row">
+                        <div class="input-group mb-3">
+                          <input id="urlInput" type="text" class="form-control" placeholder="https://www.google.com" aria-label="Url" aria-describedby="button-addon2">
+                          <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="pressFunc()">Submit</button>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <canvas id="myCanvas" width="750" height="750"></canvas>
+                      </div>
+                  </div>
+              </div>
+              <div class="col">
+                <div class="accordion" id="accordionExample">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        What is this about?
+                      </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                          <p>
+                          This is an example of how a <strong>DNS server works</strong>. Whenever we try to fetch a URL like <strong>google.com </strong>, the ISP NS(name server) 
+                          would contact a <strong>root NS</strong> that
+                          stores the IP addresses of some high level name servers. For example, the root NS would know the addresses of all the high level domain name servers like for 
+                          .com, .org etc. After getting the IP address of the NS responsible for IP addresses for .com, we check if that server knows the IP address of the domain 
+                          that we want. If it does, then we get our IP address, if it doesn't then we get an error saying that the browser was unable to resolve the domain name for the 
+                          domain name. 
+                          </p>
+                          <p>
+                          However, if there are multiple subdomains under a domain, as in case of somename.github.io, we may have to recursively visit 
+                            <ol class="list-group">
+                              <li class="list-group-item">1 Root NS</li>
+                              <li class="list-group-item">2 .io NS</li>
+                              <li class="list-group-item">3 .github.io NS</li>
+                            </ul>
+                          </p>
+                          <p>
+                          This page gives a simple illustration of this process using <strong>five name servers</strong>. 
+                          The <strong>root name</strong> server redirects the requests to <strong>.com</strong> name server or <strong>.org</strong> name
+                          server. Then the .org name server has the option to delegate requests to more specialized name servers that serve IP addresses for <strong>.google.org</strong>
+                          and <strong>.facebook.org.</strong>
+                          </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        How does it work?
+                      </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                          You can enter any domain name that ends with .com, .org, .facebook.org, .google.org to see how the resolution process works. The nodes would change colors based
+                          on the input Url. A <strong>blue</strong> color depicts that a node is processing the request. A <strong>grey</strong> color depicts that the server has
+                          the request to a child node. A <strong>green</strong> color depicts that this node contains the IP address of the Url that was requested. Finally, a 
+                          <strong> red </strong> color depicts that 
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        How was this made?
+                      </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+    <script type="text/javascript" src="index.js">
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+</html>
